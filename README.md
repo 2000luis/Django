@@ -6,3 +6,5 @@ python manage.py startapp <nombre de  app> :
 para inciar una nueva app en tu carpeta
 
 django-admin startproject <nombre de el project nuevo>
+
+
