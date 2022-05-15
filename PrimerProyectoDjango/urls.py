@@ -15,11 +15,20 @@ Including another URLconf
 """
 from django import urls
 from django.contrib import admin
+
+
+#Se debe de anexar el include porque estas usando esa funcion dentro de path
+
+#En este caso solo se anexo en import include, path
 from django.urls import include, path
 
 urlpatterns = [
+    
+    #Dentro de path como primer argumento se ingresa un string que es la extencion de esa app en el link principal de la pagina
+    
     path('admin/', admin.site.urls),
-    #En el primer string de incluye lo que quieres que tenga como nombre esta extension de tu aplicaicon en el url de tu app
     path('nombreDeExtencion/', include("hello.urls")),
-    path('OtraEctencion/', include("AñoNuevo.urls"))
+    path('OtraEctencion/', include("AñoNuevo.urls")),
+    #El include es para anexar el archivo de urls de la app tareas se pone la direccion de esa archivo
+    path('tareas/', include("tareas.urls"))
 ]
