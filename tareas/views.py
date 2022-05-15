@@ -9,3 +9,7 @@ def index(request):
     return render(request, "tareas/index.html", {
         "tareasOut": tareasIn
     })
+    
+#Esta funcion servira para agregar elementos a una lista del html index pero en otro html llamado agregar
+def agregar(request):
+    return render(request, "tareas/agregar.html")

@@ -10,5 +10,8 @@ from . import views
 urlpatterns = [
     #En la funcion path recibe como primer argumento un string que recibira al final de la extension que impemento en el urls.py de la carpeta del proyecto 
     #En este caso despues de tareas/ y ira vacio porque es la pagina index osea principal
-    path("", views.index.py, name = "index")
+    path("", views.index, name = "index"),
+    
+    #En este path redigiremos a otra pagina con la extension agregar/ que obtendra las instruciones la funcion agregar que se encuentra en el archivo views
+    path("agregar/", views.agregar, name = "agregar")
 ]

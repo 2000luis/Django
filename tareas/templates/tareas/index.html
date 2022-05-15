@@ -1,19 +1,20 @@
-<!DOCTYPE html>
-<html lang="en">
+#Esto se usa para saber de que layout se va a copear el formato html
+{% extends "tareas/layout.html" %}
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
+#Este argumento es para que agreges elementos nuevos para es archivo html y se cierra con un endblock
+{% block body%}
+<h1>tareas</h1>
+<ul>
 
-<body>
-    <ul>
-        {% for tarea in tareasOut %}
-        <li>{% task %}</li>
-        {%endfor%}
-    </ul>
-</body>
+    #Este for esta para reporduccir todas las tareas disponibles en la lista que se creo en el archivo en views.py
+    {% for tarea in tareasOut %}
 
-</html>
+    #Aqui los reproduce en un li por cada elemento
+    <li>{% task %}</li>
+    {%endfor%}
+</ul>
+
+#Este es un boton para ir a la pagina de agregar para agregar mas elementos en la lista que se reproduciran en
+index.html
+<a href="{% url 'agregar'%}">Agregar nueva tarea</a>
+{% endblock %}
