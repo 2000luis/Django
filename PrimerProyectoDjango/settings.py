@@ -32,6 +32,7 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     # aqui se introducen las nuevas carpetas para sitios de el proyecto
+    'tareas',
     'AñoNuevo',
     'hello',
     'django.contrib.admin',
