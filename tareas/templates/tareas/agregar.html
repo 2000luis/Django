@@ -1,0 +1,14 @@
+#Esto se usa para saber de que layout se va a copear el formato html
+{% extends "tareas/layout.html" %}
+
+
+#Este argumento es para que agreges elementos nuevos para es archivo html y se cierra con un endblock
+{% block body%}
+<h1>agrega tarea </h1>
+<form>
+
+    #Aqui se agregaron mas elementos a la lista de index.html
+    <input type="text" name="tarea">
+    <input type="submit">
+</form>
+{% endblock %}
