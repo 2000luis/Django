@@ -1,20 +1,26 @@
-#Esto se usa para saber de que layout se va a copear el formato html
+<!--#Esto se usa para saber de que layout se va a copear el formato html-->
 {% extends "tareas/layout.html" %}
 
-#Este argumento es para que agreges elementos nuevos para es archivo html y se cierra con un endblock
-{% block body%}
+<!--#Este argumento es para que agreges elementos nuevos para es archivo html y se cierra con un endblock-->
+{% block bodyCuerpo %}
 <h1>tareas</h1>
 <ul>
 
-    #Este for esta para reporduccir todas las tareas disponibles en la lista que se creo en el archivo en views.py
+    <!--#Este for esta para reporduccir todas las tareas disponibles en la lista que se creo en el archivo en views.py-->
     {% for tarea in tareasOut %}
 
-    #Aqui los reproduce en un li por cada elemento
-    <li>{% task %}</li>
-    {%endfor%}
+    <!--#Aqui los reproduce en un li por cada elemento-->
+    <li>{{ tarea }}</li>
+
+    {% empty %}
+
+    <li>No tasks.</li>
+
+    {% endfor %}
 </ul>
 
-#Este es un boton para ir a la pagina de agregar para agregar mas elementos en la lista que se reproduciran en
-index.html
-<a href="{% url 'agregar'%}">Agregar nueva tarea</a>
+<!--#Este es un boton para ir a la pagina de agregar para agregar mas elementos en la lista que se reproduciran en index.html-->
+<a href="{% url 'ta:agregar'%}">Agregar nueva tarea</a>
+<!-- En este link para localizar un url dentro de un proyecto y es especifico uno de una app, el app deeria tener un nombre especifico en si archivo de urls.py el cual se ultilizara para ubicar esa app despues se usa una " : " para despues escribir el nombre de un view que tengas en esa app-->
+
 {% endblock %}

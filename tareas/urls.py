@@ -6,6 +6,9 @@ from django.urls.resolvers import URLPattern
 #Luego para acceder desde la misma carpeta se ustiliza el punto: . , despues se importa los views
 from . import views
 
+#Esta variable te sirve para nombrar tu application y no se vayan a crusar urls nombres y se puede usar como nombre para localizar urls en un link en html
+app_name = "ta"
+
 #Se crean una lista para almacenar los paths 
 urlpatterns = [
     #En la funcion path recibe como primer argumento un string que recibira al final de la extension que impemento en el urls.py de la carpeta del proyecto 

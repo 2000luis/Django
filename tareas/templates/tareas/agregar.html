@@ -1,14 +1,31 @@
-#Esto se usa para saber de que layout se va a copear el formato html
+<!--#Esto se usa para saber de que layout se va a copear el formato html-->
 {% extends "tareas/layout.html" %}
 
 
-#Este argumento es para que agreges elementos nuevos para es archivo html y se cierra con un endblock
-{% block body%}
-<h1>agrega tarea </h1>
-<form>
+<!--#Este argumento es para que agreges elementos nuevos para es archivo html y se cierra con un endblock-->
 
-    #Aqui se agregaron mas elementos a la lista de index.html
-    <input type="text" name="tarea">
-    <input type="submit">
+{% block bodyCuerpo%}
+<h1>agrega tarea </h1>
+
+<!-- Se le agrega a form un action para que pueda hacer algo el forma y a donde lo va a enviar que en este caso es {% url
+'ta:agregar%} y despues de especifica que action sera y se pone como un post -->
+<form action="{% url 'ta:agregar'%} " method="post">
+
+    <!-- Esta es la forma de poder agregar un token debido a que la action sea segura y que verifique que es una action de parte de los desarrolladors del proyecto y no de hackers
+    Esto generara un token unico que validara nuestra accion -->
+    {%csrf_token%}
+    <!--#Aqui se agregaron mas elementos a la lista de index.html#-->
+
+    <div>
+        <!-- <input type="text" name="tarea">  estotambien es valido pero haciendo tu mismo-->
+
+        <!-- Esto es la variable de el dictionario que tiene guardado un form en el archivo de views que esta guardada en una
+        class de Newtarea -->
+        {{ formm }}
+        <input type="submit">
+    </div>
+
+    <!-- En este link para localizar un url dentro de un proyecto y es especifico uno de una app, el app deeria tener un nombre especifico en si archivo de urls.py el cual se ultilizara para ubicar esa app despues se usa una " : " para despues escribir el nombre de un view que tengas en esa app-->
+    <a href="{% url 'ta:index'%}">Ver tareas</a>
 </form>
 {% endblock %}
